@@ -1,3 +1,5 @@
+import random
+
 class No:
     def __init__(self, chave):
         self.direita = None
@@ -35,6 +37,33 @@ def main():
             return busca(root.direita, chave)
         
         return busca(root.esquerda, chave)
+    
+    root = None
+
+    i = 0
+
+    # Testando o método de inserção
+
+    while i < 20:
+
+        root = insercao(root, random.randint(1, 100))
+        i += 1
+    
+    # Testando o método de travessia em ordem
+
+    travessia_em_ordem(root)
+
+    # Testando o método de busca
+
+    valor = int(input("Escolha um valor para buscar na árvore: "))
+
+    resultado = busca(root, valor)
+
+    if resultado:
+        print("Valor " + str(valor) + " encontrado na árvore.")
+
+    else:
+        print("Valor " + str(valor) + " não encontrado na árvore.")
 
 
 if __name__ == "__main__":
