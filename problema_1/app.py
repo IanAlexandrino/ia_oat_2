@@ -23,8 +23,18 @@ def main():
 
             else:
                 root.esquerda = insercao(root.esquerda, chave)
-                
+
         return root
+    
+    def busca(root, chave):
+
+        if root is None or root.valor == chave:
+            return root
+        
+        if root.valor < chave:
+            return busca(root.direita, chave)
+        
+        return busca(root.esquerda, chave)
 
 
 if __name__ == "__main__":
